@@ -20,4 +20,4 @@ Its structure is composed by:
 
 ## Credits
 
-Project idea by (Coding Crash Courses)[https://www.youtube.com/@codingcrashcourses8533]. I replicated this to learn.
+Project idea by [Coding Crash Courses](https://www.youtube.com/@codingcrashcourses8533). I replicated this to learn.
