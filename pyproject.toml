@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "jwt-auth-chatbot"
+version = "0.1.0"
+description = "Chatbot secured with JWT Authentication"
+authors = ["Ricardo <ricardo.olalquiaga@usm.cl>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^2.9.2"
+sqlalchemy = "^2.0.36"
+python-jose = "^3.3.0"
+passlib = "^1.7.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
