@@ -18,6 +18,10 @@ Its structure is composed by:
 
 - Signature: It is what secures the token. It takes the encode data from the header and the payload using a secret key.
 
+## TODO
+
+This project was made in Pydantic <2.0.0, and it had major updates in this last version. Could be good to update the project to a newer version.
+
 ## Credits
 
 Project idea by [Coding Crash Courses](https://www.youtube.com/@codingcrashcourses8533). I replicated this to learn.
