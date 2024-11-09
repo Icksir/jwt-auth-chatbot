@@ -11,6 +11,7 @@ pydantic = "^2.9.2"
 sqlalchemy = "^2.0.36"
 python-jose = "^3.3.0"
 passlib = "^1.7.4"
+fastapi = {extras = ["standard"], version = "^0.115.4"}
 
 
 [build-system]
