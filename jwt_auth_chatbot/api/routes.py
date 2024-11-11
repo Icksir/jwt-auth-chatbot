@@ -1,8 +1,9 @@
-from datetime import datetime, timedelta, timezone
+from datetime import timedelta
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
+from typing import Annotated
 
 from jwt_auth_chatbot.api import models, schemas, security, auth
 from jwt_auth_chatbot.api.db import get_db
@@ -33,10 +34,10 @@ async def register_user(user: schemas.UserIn, db: Session = Depends(get_db)):
 
 @router.post("/token/", response_model=schemas.Token)
 async def login_for_access_token(
-    form_data: OAuth2PasswordRequestForm = Depends(),
+    form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
     db: Session = Depends(get_db)
 ):
-    user = auth.get_db_user(db, form_data.username)
+    user = auth.get_user(db, form_data.username)
     if not user or not security.pwd_context.verify(
         form_data.password, user.hashed_password
     ):
