@@ -4,7 +4,12 @@ from typing import Optional
 import jwt
 from passlib.context import CryptContext
 
-SECRET_KEY = "dfd265f4fa9bc64e66af54ebcfd20b12265ae423a1ca9c49f455827d0036f34e"
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRES_MINUTES = 30
 
