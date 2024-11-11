@@ -24,4 +24,4 @@ This project was made in Pydantic <2.0.0, and it had major updates in this last 
 
 ## Credits
 
-Project idea by [Coding Crash Courses](https://www.youtube.com/@codingcrashcourses8533). I replicated this to learn.
+Project idea by [Coding Crash Courses](https://www.youtube.com/@codingcrashcourses8533). I used his project as a base for this one.
