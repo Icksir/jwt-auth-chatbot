@@ -1,10 +1,10 @@
 from datetime import datetime, timedelta, timezone
 from typing import Optional
 
-from jose import JWTError, jwt
+import jwt
 from passlib.context import CryptContext
 
-SECRET_KEY = "YOUR_SECRET_KEY"
+SECRET_KEY = "dfd265f4fa9bc64e66af54ebcfd20b12265ae423a1ca9c49f455827d0036f34e"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRES_MINUTES = 30
 
