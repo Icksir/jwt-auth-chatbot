@@ -7,6 +7,8 @@ from typing import Annotated
 
 from jwt_auth_chatbot.api import models, schemas, security, auth
 from jwt_auth_chatbot.api.db import get_db
+from jwt_auth_chatbot.openai.prompts import generate_context
+from jwt_auth_chatbot.openai.chat import conversation
 
 router = APIRouter()
 
@@ -58,9 +60,14 @@ async def login_for_access_token(
 
 @router.get("/conversation/")
 async def read_conversation(
-    current_user: models.User = Depends(auth.get_current_user)
+    query: str,
+    current_user: schemas.UserInDB = Depends(auth.get_current_user),
+    db: Session = Depends(get_db)
 ):
-    return {
-        "conversation": "This is a conversation",
-        "username": current_user.username,
-        }
+    db_user = db.query(models.User).get(current_user.id)
+    if not db_user:
+        raise HTTPException(status_code=404, detail="User not found")
+    context = generate_context(db_user)
+    result = conversation(context, query)
+
+    return {"response": result}
