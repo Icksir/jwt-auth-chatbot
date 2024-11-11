@@ -8,10 +8,10 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 sqlalchemy = "^2.0.36"
-python-jose = "^3.3.0"
 passlib = "^1.7.4"
 fastapi = {extras = ["standard"], version = "^0.115.4"}
 pydantic = "^1.10.0"
+pyjwt = "^2.9.0"
 
 [build-system]
 requires = ["poetry-core"]
