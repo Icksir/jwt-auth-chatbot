@@ -26,8 +26,7 @@ async def add_cors_headers(request, call_next):
     return response
 
 origins = [
-    ALLOWED_DOMAIN,
-    "http://localhost:8000",
+    ALLOWED_DOMAIN
 ]
 
 app.add_middleware(
