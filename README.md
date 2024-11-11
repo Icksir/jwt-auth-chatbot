@@ -44,4 +44,4 @@ Its structure is composed by:
 
 ## Credits
 
-Project idea by [Coding Crash Courses](https://www.youtube.com/@codingcrashcourses8533). I used his project as a base for this one.
+Project idea by [Coding Crash Courses](https://www.youtube.com/@codingcrashcourses8533).
