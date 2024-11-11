@@ -17,10 +17,10 @@ class UserIn(UserBase):
     password: str
 
 class UserInDBBase(UserBase):
-    id = int
+    id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class UserInDB(UserInDBBase):
     hashed_password: str
