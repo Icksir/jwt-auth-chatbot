@@ -2,9 +2,33 @@
 
 ## Summary
 
+Endpoint for a chatbot with an url allowed origin made with a CORS middleware and JWT authentication to ensure a secure endpoint. It also has an endpoint to create a user.
+
+The chatbot is made with Langchain and OpenAI's model.
+
+### /register/
+
+![Alt Text](gifs/register.gif)
+
+### /conversation/
+
+![Alt Text](gifs/conversation.gif)
+
 ## Installation
 
 This project is built using [poetry](https://python-poetry.org/). It is required its installation to be able to build correctly the environment.
+
+To build, utilize your environmental variables in .env file, and then execute
+
+```
+poetry run main
+```
+
+and the access 
+
+```
+http://127.0.0.1:5555/docs
+```
 
 ## What is JWT and how it works?
 
