@@ -1,17 +1,20 @@
+from typing import Annotated
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
-from jose import JWTError, jwt
 from sqlalchemy.orm import Session
+import jwt
+from jwt.exceptions import InvalidTokenError
 
 from jwt_auth_chatbot.api.db import get_db
-from jwt_auth_chatbot.api import models, schemas, security
+from jwt_auth_chatbot.api import models, security
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 def get_user(db: Session, username: str):
     return db.query(models.User).filter(models.User.username == username).first()
 
-def get_current_user(db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+def get_current_user(token: Annotated[str, Depends(oauth2_scheme)], 
+                     db: Session = Depends(get_db)):
     
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
@@ -24,7 +27,7 @@ def get_current_user(db: Session = Depends(get_db), token: str = Depends(oauth2_
         username: str = payload.get("sub")
         if username is None:
             raise credentials_exception
-    except JWTError:
+    except InvalidTokenError:
         raise credentials_exception
     
     user = get_user(db, username)
