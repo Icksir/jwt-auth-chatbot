@@ -26,7 +26,7 @@ class UserInDB(UserInDBBase):
     hashed_password: str
 
 class TokenData(BaseModel):
-    username: Optional[str] = None
+    username: str | None = None
 
 class Token(BaseModel):
     access_token: str
